@@ -1,12 +1,18 @@
 import './App.scss';
-import { useEffect, useState } from 'react';
-import axios from "axios";
+import { useEffect } from 'react';
 import Categories from './components/Categories';
 import CardList from './components/CardList';
-import { Route, Routes } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.pathname == '/') {
+			navigate('/all')
+		}
+	})
 
 	return (
 		<>

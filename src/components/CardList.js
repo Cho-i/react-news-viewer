@@ -6,11 +6,12 @@ import axios from "axios";
 function CardList() {
 	const { category } = useParams();
 	const [articles, setArticles] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		// async를 사용하는 함수 따로 선언
 		const fetchData = async () => {
-			//setLoading(true);
+			setLoading(true);
 			try {
 				const query = (category === 'all') ? '' : `&category=${category}`;
 				const res = await axios.get(
@@ -20,10 +21,15 @@ function CardList() {
 			} catch (e) {
 				console.log(e);
 			}
-			//setLoading(false);
+			setLoading(false);
 		};
 		fetchData();
 	}, [category]);
+
+	// 대기 중일 때
+	if (loading) {
+		return <div>대기 중…</div>;
+	}
 
 	// 아직 articles 값이 설정되지 않았을 때
 	if (!articles) {
