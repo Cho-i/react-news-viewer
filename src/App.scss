@@ -16,3 +16,14 @@ li {
     font-weight: 700;
   }
 }
+.pagination {
+  justify-content: center;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+}

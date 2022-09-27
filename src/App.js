@@ -9,7 +9,7 @@ function App() {
 	const location = useLocation();
 
 	useEffect(() => {
-		if (location.pathname == '/') {
+		if (location.pathname === '/') {
 			navigate('/all')
 		}
 	})

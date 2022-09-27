@@ -6,7 +6,7 @@ function CardItem({ article }) {
 			<Card.Img variant="top" src={article.urlToImage} />
 			<Card.Body>
 				<Card.Title>{article.title}</Card.Title>
-				<Button variant="primary">상세</Button>
+				<Button href={article.url} target="_blank">상세</Button>
 			</Card.Body>
 		</Card>
 	)
